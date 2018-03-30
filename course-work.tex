@@ -1,0 +1,121 @@
+\documentclass[12pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{vmargin}
+\usepackage{indentfirst}
+\usepackage[T2A]{fontenc}
+\usepackage{graphics}
+\usepackage{amsthm}
+\usepackage{amsbsy}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtext}
+\usepackage[pdftex,a4paper,colorlinks,linkcolor=blue,citecolor=blue]{hyperref}	
+
+
+\usepackage[pdftex]{graphicx}
+\usepackage{array}
+\usepackage{graphicx,xcolor}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{longtable}
+
+\parindent = 30pt
+\hoffset = 0pt
+\voffset = 0pt
+\oddsidemargin = 72pt
+\topmargin = 18pt
+\headheight = 12pt
+\headsep = 25pt
+\textheight = 568pt
+\textwidth = 360pt
+\marginparsep = 10pt
+\marginparwidth = 103pt
+
+\usepackage{tikz}
+\usepackage{verbatim}
+
+\paperwidth = 597pt
+\paperheight = 845pt
+
+\begin{document}
+
+\begin{titlepage} \newpage 
+\begin{center} МОСКОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ\\ ИМ. М.В. ЛОМОНОСОВА\end{center} 
+\vspace{8em} \begin{center} 
+\Large Механико-математический факультет \\ \end{center}
+\vspace{2em} \begin{center} 
+\textsc{Курсовая работа \linebreak \textbf{}
+\linebreak \linebreak \textbf{}} \end{center}
+\vspace{6em} \newbox{\lbox} \savebox{\lbox}{\hbox{Я.Нагорных}} 
+\newlength{\maxl} \setlength{\maxl}{\wd\lbox} \hfill\parbox{12	cm}
+{ \hspace*{10cm}\hspace*{-5cm}Студент 3 курса:\hfill\hbox to\maxl{Нагорных Я.В.}\\
+\hspace*{10cm}\hspace*{-5cm}Научный руководитель:\hfill\hbox to\maxl{Богачев К.Ю.}}\\  \vspace{\fill}
+\begin{center} Москва \\ 2017\end{center} \end{titlepage}
+
+%\maketitle
+
+%\renewcommand{\contentsname}{Содержание}
+\tableofcontents
+
+\renewcommand{\figurename}{Рисунок}
+
+\newpage
+
+\section*{Введение}
+\addcontentsline{toc}{section}{Введение}
+Печать большив массивов чисел всегда занимает много времени.
+Кроме того, при печати мало ресурсов для ускорения.
+
+Печать чисел с плавающей запятой также является была проблемой. 
+Стандартный подход недостаточно точен и в некоторых случаях дает неверные результаты. 
+Кроме того использование функций стандартных библиотек (\texttt{printf}, \texttt{sprintf}) достаточно затратно по времени.
+\\
+\\
+\textbf{Цели работы:}
+\begin{enumerate}
+\item Ускорить печать больших массивов;
+\item Использовать быстрые алгоритмы печати целых чисел и чисел с плавающей точкой.
+\end{enumerate}
+
+\section{Проблемы и способы их решения}
+Как уже было сказано, при печати массивов мало ресурсов для ускорения.
+Также проблемой является и то, что печать данных файл должна быть строго последовательной, поэтому нельзя ''простым'' образом использовать распараллеливание.
+
+Однако, известно что большую часть времени занимает преобразование типа \texttt{int} или \texttt{double} в тип \texttt{const char *} непосредственно для печати.
+Именно это можно и распараллелить, используя многопоточное программирование.
+
+Кроме того, можно заменить стандартный алгоритм преобразования числа в строку, на более быстрые.
+Мы будем использовать алгоритм \textsf{Grisu2}, о котором будет рассказано позже.
+
+
+
+
+\section{}
+\subsection{Распределение задач}
+
+
+\subsection{Описание алгоритма}
+\section{Заключение}
+
+
+\newpage
+
+\appendix
+\section*{Приложение}
+\addcontentsline{toc}{section}{Приложение}
+\renewcommand{\thesubsection}{(\Alph{subsection})}
+
+\newpage
+\begin{thebibliography}{}
+
+\bibitem{1} \textsc{Florian Loitsch}, 
+Printing Floating-Point Numbers Quickly and Accurately with Integers, 2004.
+\bibitem{2} \textsc{Богачев К. Ю.}, 
+Основы параллельного программирования. -- M.: Бином. Лаборатория знаний, 2010.
+
+
+\end{thebibliography}
+
+\end{document}
