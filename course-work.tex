@@ -109,7 +109,7 @@
 В ней находится элемент класса \texttt{\class{writer\_file}}, строковый буффер (готовый для печати) и его порядковый номер (\texttt{\field{chunk\_id}}).
 Кроме того, хранится флаг, является ли этот \texttt{\class{writer\_chunk}} последним.
 \paragraph{Класс \texttt{\class{writer\_file}}.}
-Он организовывает правильную печать в файл. 
+Он организовывает правильную и последовательную печать готовых буферов в файл. 
 \paragraph{Структура \texttt{\class{printer\_chunk}}.}
 Этот тип состоит из лямбда-функии, которая должна обработать определенный фрагмент массива чисел, и элемента типа \texttt{\class{writer\_chunk}}, который должна вернуть функция.
 \paragraph{Класс \texttt{\class{mutex\_wait\_queue}}.}
@@ -211,6 +211,8 @@ $k$ зависит только от типа номера с плавающей
 
 \subsection{Описание \textsf{SSE2}}
 
+
+
 \section{Результаты работы и ускорение}
 
 \section{Заключение}
@@ -230,7 +232,7 @@ $k$ зависит только от типа номера с плавающей
 Printing Floating-Point Numbers Quickly and Accurately with Integers, 2004.
 \bibitem{2} \textsc{Wojciech Mula}.
 SSE: conversion integers to decimal representation, 2011.
-\bibitem{3} https://github.com/miloyip/itoa-benchmark/blob/master/readme.md
+\bibitem{3} 
 \bibitem{4} \textsc{Богачев К. Ю.}. 
 Основы параллельного программирования. -- M.: Бином. Лаборатория знаний, 2010.
 
