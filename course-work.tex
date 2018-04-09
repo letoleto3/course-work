@@ -129,12 +129,20 @@
 Помимо потоков и их количества этот класс хранит две блокирующие очереди \texttt{\field{m\_print\_queue}} и \texttt{\field{m\_write\_queue}}, состоящие из \texttt{\class{printer\_chunk}} и \texttt{\class{writer\_chunk}} соответственно. 
 Зачем нужны такие очереди будет сказано позже.
 
+\subsection{NEW}
+Оболочкой утилиты является класс \texttt{\class{fast\_array\_writer}}. 
+В нем находится управляющий поток \texttt{\class{worker\_thread}}, структура \texttt{\class{chunk\_info}}, размер этого чанка и параметры, которые отвечают за ''красивую'' печать в файл (такие как символ конца строки, количество колонок и т.д.).
+
+\paragraph{Структура \texttt{\class{chunk\_info}}.} В ней находится строковый буффер (готовый для печати), текущая позиция в файле и заказанный максимальный размер строки в выходном файле.
+
+\paragraph{Класс}
+
+
 \subsection{Распределение задач}
 Управляющий (главный) поток будет складывать элементы типа \texttt{\class{printer\_chunk}} в очередь \texttt{\field{m\_print\_queue}}.
 Потоки \texttt{\field{m\_printers}} будут доставать из этой очереди \texttt{\class{printer\_chunk}}-и на обработку.
 Они должны конвертировать числа в буфферы, готовые для печати.
 Эти готовые буфферы \texttt{\class{writer\_chunk}} они складывают в другую очередь \texttt{\field{m\_write\_queue}}.
-\texttt{\textcolor[rgb]{0.5,0,0}{parallel\_writer}}
 Поток \texttt{\field{m\_writer}} должен забирать готовые буфферы из этой очереди и печатать их в правильном порядке в файл.
 \begin{figure}[h!]
 \def\svgwidth{430pt}
@@ -348,10 +356,6 @@ $k$ зависит только от типа номера с плавающей
 \section{Заключение}
 \newpage
 
-\appendix
-\section*{Приложение}
-\addcontentsline{toc}{section}{Приложение}
-\renewcommand{\thesubsection}{(\Alph{subsection})}
 
 \newpage
 \begin{thebibliography}{}
@@ -359,10 +363,7 @@ $k$ зависит только от типа номера с плавающей
 \bibitem{1} \textsc{Florian Loitsch}.
 Printing Floating-Point Numbers Quickly and Accurately with Integers, 2004.
 \bibitem{2} \textsc{Wojciech Mula}.
-SSE: conversion integers to decimal representation, 2011.
-\bibitem{3} 
-\bibitem{4} \textsc{Богачев К. Ю.}. 
-Основы параллельного программирования. -- M.: Бином. Лаборатория знаний, 2010.
+SSE: conversion integers to decimal representation, 2011
 
 
 \end{thebibliography}
