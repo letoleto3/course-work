@@ -325,9 +325,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.0506097"
-     inkscape:cx="162.10008"
-     inkscape:cy="85.740656"
+     inkscape:zoom="1"
+     inkscape:cx="476.52092"
+     inkscape:cy="109.36886"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -675,14 +675,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="79.597"
+       x="85.597"
        y="865.25159"
        id="text4349"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4351"
-         x="79.597"
-         y="865.25159">\texttt{\textcolor[rgb]{0.5,0,0}{m\_print\_queue}}</tspan></text>
+         x="85.597"
+         y="865.25159">\texttt{\textcolor[rgb]{0.5,0,0}{m\_map\_queue}}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -693,62 +693,62 @@
          sodipodi:role="line"
          id="tspan4428"
          x="238.862"
-         y="865.25159">\texttt{\textcolor[rgb]{0.5,0,0}{m\_write\_queue}}</tspan></text>
+         y="865.25159">\texttt{\textcolor[rgb]{0.5,0,0}{m\_reduce\_queue}}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="18.551722"
+       x="19.152"
        y="1029.7661"
        id="text4349-6"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4351-0"
-         x="18.551722"
+         x="19.152"
          y="1029.7661">\texttt{\textcolor[rgb]{0.5,0.5,0}{double}} или \texttt{\textcolor[rgb]{0.5,0.5,0}{int}}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="23.098721"
+       x="23.698999"
        y="1019.5536"
        id="text4475"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4477"
-         x="23.098721"
+         x="23.698999"
          y="1019.5536">\textit{массив чисел}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="304.42899"
+       x="304.82901"
        y="1019.5536"
        id="text4475-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4595"
-         x="304.42899"
+         x="304.82901"
          y="1019.5536">\textit{текстовый}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="168.51445"
-       y="1008.1765"
+       x="182.51445"
+       y="1003.176"
        id="text4349-9"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4515"
-         x="168.51445"
-         y="1008.1765">\texttt{\textcolor[rgb]{0.5,0,0}{m\_printers}}</tspan></text>
+         x="182.51445"
+         y="1003.176">\texttt{\textcolor[rgb]{0.5,0,0}{maps}}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="325.73926"
-       y="940.02655"
+       y="934.02655"
        id="text4349-9-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4535"
          x="325.73926"
-         y="940.02655">\texttt{\textcolor[rgb]{0.5,0,0}{m\_writer}}</tspan></text>
+         y="934.02655">\texttt{\textcolor[rgb]{0.5,0,0}{reducer}}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -759,17 +759,39 @@
          sodipodi:role="line"
          id="tspan4555"
          x="-10.801"
-         y="940.5722">\textit{главный поток}</tspan></text>
+         y="940.5722">\texttt{\textcolor[rgb]{0.5,0,0}{worker\_thread}}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="324.64944"
+       x="321.04947"
        y="1029.7661"
        id="text4475-8-0"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4595-3"
-         x="324.64944"
+         x="321.04947"
          y="1029.7661">\textit{файл}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="145.13193"
+       y="1012.7876"
+       id="text4475-8-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4595-7"
+         x="145.13193"
+         y="1012.7876">\textit{потоки-обработчики}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="325.73926"
+       y="944.20715"
+       id="text4475-8-9-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4595-7-3"
+         x="325.73926"
+         y="944.20715">\textit{печатающий поток}</tspan></text>
   </g>
 </svg>
