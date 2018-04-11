@@ -120,7 +120,6 @@
 \item \texttt{dequeue\_all} -- аналогично \texttt{dequeue}, но достает все элементы, находящиеся в очереди, и складывает в указатель вектор из них;
 \item \texttt{enqueue} -- складывает элемент в конец очереди.
 \end{itemize}
-\paragraph{Класс \texttt{\class{task}}.}
 \paragraph{Класс \texttt{\class{worker\_thread}}.}
 Это главный управляющий поток.
 Он хранит две блокирующие очереди \texttt{\field{m\_map\_queue}} и \texttt{\field{m\_reduce\_queue}}, состоящие из \texttt{\class{map\_chunk}} и \texttt{\class{reduce\_chunk}} соответственно. 
@@ -306,6 +305,9 @@ $5 \cdot 10^8$  & 21.312 & 20.297 & 37.627 & 148.829 & 202.333 \\
 \hline
 \hline
 \end{tabular}
+\end{center}
+Среднее ускорение приведено в следующей таблице:
+\begin{center}
 \begin{tabular}{||c|c|c|c|c|c||}
 \hline
 \hline
@@ -325,7 +327,7 @@ $5 \cdot 10^8$ & 9.51 & 10.01 & 5.37 & 1.36 & 12 Gb \\
 \end{tabular}
 \end{center}
 
-Время работы на массиве с множеством повторяющихся чисел:
+Время работы в секундах на массиве с множеством повторяющихся чисел:
 \begin{center}
 \begin{tabular}{||c|c|c|c|c|c||}
 \hline
@@ -361,6 +363,10 @@ $5 \cdot 10^8$ & 16.414 & 12.564 & 8.787 & 31.291 & 181.406 \\
 \hline
 \hline
 \end{tabular}
+\end{center}
+Среднее ускорение приведено в следующей таблице.
+Также приведен размер полученного файла со звездами и без звезд.
+\begin{center}
 \begin{tabular}{||c|c|c|c|c|c||}
 \hline
 \hline

@@ -50,8 +50,8 @@
   \makeatother%
   \begin{picture}(1,0.51282051)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{drawing.pdf}}%
-    \put(0.21947949,0.4797707){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{m\_map\_queue}}}}}%
-    \put(0.61246667,0.4797707){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{m\_reduce\_queue}}}}}%
+    \put(0.21947949,0.53105275){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{m\_map\_queue}}}}}%
+    \put(0.61246667,0.53105275){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{m\_reduce\_queue}}}}}%
     \put(0.04910769,0.05793858){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0.5,0}{double}} или \texttt{\textcolor[rgb]{0.5,0.5,0}{int}}}}}%
     \put(0.06076667,0.08412454){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{массив чисел}}}}%
     \put(0.78161285,0.08412454){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{текстовый}}}}%
@@ -61,5 +61,9 @@
     \put(0.82320377,0.05793858){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{файл}}}}%
     \put(0.37213315,0.10044659){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{потоки-обработчики}}}}%
     \put(0.83522887,0.27732053){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{печатающий поток}}}}%
+    \put(0.13266476,0.50552566){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{очередь из фрагментов массива }}}}%
+    \put(0.50445964,0.50552566){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{очередь из готовых буфферов}}}}%
+    \put(0.20675309,0.47935097){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{на обработку }}}}%
+    \put(0.65651104,0.47935097){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{на печать}}}}%
   \end{picture}%
 \endgroup%
