@@ -59,7 +59,7 @@
     \put(0.83522887,0.30342464){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{reducer}}}}}%
     \put(-0.02769487,0.28664091){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{worker\_thread}}}}}%
     \put(0.82320377,0.05793858){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{файл}}}}%
-    \put(0.37213315,0.10147324){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{потоки-обработчики}}}}%
+    \put(0.37213315,0.10044659){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{потоки-обработчики}}}}%
     \put(0.83522887,0.27732053){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{печатающий поток}}}}%
   \end{picture}%
 \endgroup%
