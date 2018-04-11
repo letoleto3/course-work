@@ -48,22 +48,23 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.51282051)%
+  \begin{picture}(1,0.56410256)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{drawing.pdf}}%
-    \put(0.21947949,0.53105275){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{m\_map\_queue}}}}}%
-    \put(0.61246667,0.53105275){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{m\_reduce\_queue}}}}}%
-    \put(0.04910769,0.05793858){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0.5,0}{double}} или \texttt{\textcolor[rgb]{0.5,0.5,0}{int}}}}}%
-    \put(0.06076667,0.08412454){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{массив чисел}}}}%
-    \put(0.78161285,0.08412454){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{текстовый}}}}%
+    \put(0.23999231,0.53105275){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{m\_map\_queue}}}}}%
+    \put(0.62272308,0.53105275){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{m\_reduce\_queue}}}}}%
+    \put(0.06449231,0.05793858){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0.5,0}{double}} или \texttt{\textcolor[rgb]{0.5,0.5,0}{int}}}}}%
+    \put(0.08127949,0.08412454){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{массив чисел}}}}%
+    \put(0.79699746,0.08412454){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{текстовый}}}}%
     \put(0.46798577,0.12611829){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{maps}}}}}%
-    \put(0.83522887,0.30342464){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{reducer}}}}}%
-    \put(-0.02769487,0.28664091){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{worker\_thread}}}}}%
-    \put(0.82320377,0.05793858){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{файл}}}}%
+    \put(0.83522887,0.29829644){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{reducer}}}}}%
+    \put(-0.00718205,0.29829644){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\texttt{\textcolor[rgb]{0.5,0,0}{worker\_thread}}}}}%
+    \put(0.83346018,0.05793858){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{файл}}}}%
     \put(0.37213315,0.10044659){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{потоки-обработчики}}}}%
     \put(0.83522887,0.27732053){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{печатающий поток}}}}%
-    \put(0.13266476,0.50552566){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{очередь из фрагментов массива }}}}%
-    \put(0.50445964,0.50552566){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{очередь из готовых буфферов}}}}%
-    \put(0.20675309,0.47935097){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{на обработку }}}}%
-    \put(0.65651104,0.47935097){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{на печать}}}}%
+    \put(0.1736904,0.50552566){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{очередь из фрагментов }}}}%
+    \put(0.59676733,0.50552566){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{очередь из готовых}}}}%
+    \put(0.18111206,0.47935097){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{массива на обработку }}}}%
+    \put(0.59497258,0.47935097){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{буфферов на печать}}}}%
+    \put(-0.01088075,0.27732053){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{главный поток}}}}%
   \end{picture}%
 \endgroup%

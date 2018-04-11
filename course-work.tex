@@ -1,6 +1,18 @@
-\documentclass[a4paper, 12pt, twoside]{article}
+\documentclass[specialist,subf,href,colorlinks=true,14pt
+%,fixint=false
+,times,mtpro,specialist
+]{disser}
+\usepackage[
+  a4paper, mag=1000, includefoot,
+  left=3cm, right=1.5cm, top=2cm, bottom=2cm, headsep=1cm, footskip=1cm
+]{geometry}
+\usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\ifpdf\usepackage{epstopdf}\fi
+\sloppy
+
 \usepackage{cite,enumerate,float}
 
 \usepackage{vmargin}
@@ -14,52 +26,40 @@
 \usepackage{amsfonts}
 \usepackage{mathtext}
 \usepackage{hhline}
-\usepackage[pdftex,a4paper,colorlinks,linkcolor=blue,citecolor=blue]{hyperref}	
-
-\usepackage{mathtext}
-\usepackage{mathenv}
-\usepackage[pdftex]{graphicx}
-\usepackage{array}
-\usepackage{graphicx,xcolor}
-\usepackage{xcolor}
-\usepackage{float}
 \usepackage{longtable}
 \usepackage{fancybox,fancyhdr} 
-
-\parindent = 30pt
-\hoffset = 12pt
-\voffset = 0pt
-\oddsidemargin = 0pt
-\evensidemargin = 0pt
-\topmargin = 9pt
-\headheight = 0pt
-\headsep = 24pt
-\textheight = 650pt
-\textwidth = 450pt
-\marginparsep = 0pt
-\marginparwidth = 9pt
-\footskip = 30pt
-
-\newtheorem{algorithm}{Algorithm}
-\newtheorem{theorem}{Theorem}
-\newcommand*\diff{\mathop{}\!\mathrm{d}}
-\DeclareMathOperator{\divg}{div}
-
+%\usepackage{mathtext}
+%\usepackage{mathenv}
+%\usepackage{array}
+%\usepackage{xcolor}
+%\usepackage{float}
+%\parindent = 30pt
+%\hoffset = 12pt
+%\voffset = 0pt
+%\oddsidemargin = 0pt
+%\evensidemargin = 0pt
+%\topmargin = 9pt
+%\headheight = 0pt
+%\headsep = 24pt
+%\textheight = 650pt
+%\textwidth = 450pt
+%\marginparsep = 0pt
+%\marginparwidth = 9pt
+%\footskip = 30pt
 
 \begin{document}
-
 \begin{titlepage} \newpage 
 \begin{center} МОСКОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ\\ ИМ. М.В. ЛОМОНОСОВА\end{center} 
 \vspace{8em} \begin{center} 
 \Large Механико-математический факультет \\ \end{center}
 \vspace{2em} \begin{center} 
-\textsc{Курсовая работа \linebreak \textbf{}
+\textsc{Курсовая работа \linebreak \textbf{Реализация параллельной записи больших файлов с вещественными числами в текстовом представлении}
 \linebreak \linebreak \textbf{}} \end{center}
 \vspace{6em} \newbox{\lbox} \savebox{\lbox}{\hbox{Я.Нагорных}} 
 \newlength{\maxl} \setlength{\maxl}{\wd\lbox} \hfill\parbox{12	cm}
-{ \hspace*{10cm}\hspace*{-5cm}Студент 3 курса:\hfill\hbox to\maxl{Нагорных Я.В.}\\
-\hspace*{10cm}\hspace*{-5cm}Научный руководитель:\hfill\hbox to\maxl{Богачев К.Ю.}}\\  \vspace{\fill}
-\begin{center} Москва \\ 2017\end{center} \end{titlepage}
+{ \hspace*{7.5cm}\hspace*{-5cm}Студент 4 курса:\hfill\hbox to\maxl{Нагорных Я.В.}\\
+\hspace*{7.5cm}\hspace*{-5cm}Научный руководитель:\hfill\hbox to\maxl{Богачев К.Ю.}}\\  \vspace{\fill}
+\begin{center} Москва \\ 2018\end{center} \end{titlepage}
 
 %\maketitle
 
@@ -126,41 +126,60 @@
 Зачем нужны такие очереди будет сказано позже.
 
 \subsection{Распределение задач}
-Управляющий (главный) поток \texttt{\class{worker\_thread}} вызывает функцию \texttt{create\_mappers ()}, которая создает несколько потоков-обработчиков чисел, и функцию \texttt{create\_reducer ()}, которая создает печатающий поток.
+Управляющий (главный) поток \texttt{\class{worker\_thread}} вызывает функцию \texttt{create\_mappers()}, которая создает несколько потоков-обработчиков чисел, и функцию \texttt{create\_reducer()}, которая создает печатающий поток.
 Сам управляюий поток будет складывать элементы типа \texttt{\class{map\_chunk}} в очередь \texttt{\field{m\_map\_queue}}.
 Потоки-обработчики будут доставать из этой очереди \texttt{\class{map\_chunk}}-и на обработку.
 Они должны конвертировать числа в буфферы, готовые для печати.
 Эти готовые буфферы \texttt{\class{reduce\_chunk}} они складывают в другую очередь \texttt{\field{m\_reduce\_queue}}.
 Печатающий поток должен забирать готовые буфферы из этой очереди и печатать их в правильном порядке в файл.
 \begin{figure}[h!]
+\begin{footnotesize}
 \def\svgwidth{430pt}
   \input{drawing.pdf_tex}
   \caption{Работа потоков.} \label{draw}
-\end{figure}
+\end{footnotesize}\end{figure}
 
 Схематично работа потоков показана на Рисунке \ref{draw}.
 
 \subsection{Преобразование чисел в строковый тип}
 \subsubsection{Используемые обозначения.}
+Приведем используемые далее обозначения и понятия.
+
+Вообще, число $v$ с плавающей точкой в основании $b$ представляется в памяти как $$v = f_v \times b^{e_v},$$ где $b$ обычно равно $2$. $f_v$ -- целое значение или \textit{мантисса}, а $e_v$ -- \textit{показатель}.
+
+Любая мантисса $f$ может быть представлена как $$f = \sum\limits_{i=0}^{p-1} d_i \times b^i,$$ где $0 \leqslant в_i \leqslant b$. 
+Числа $d_i$ -- \textit{знаки числа}.
+
+Будем называть число \textit{нормированным}, если знак $d_{p-1}$ отличен от нуля.
+Если экспонента имеет неограниченный диапазон, любое ненулевое число может быть нормализовано путем ''сдвига'' знака влево при соответствующей корректировке экспоненты. 
+
+Так как не все вещественные числа могут быть представлены машиной, поговорим про округления.
 Как известно, числа с \texttt{5} на конце, могут округляться по-разному.
 Используем следующие обозначения:
 \begin{itemize}
 \item $[x]^\uparrow$ -- округление вверх
-\item $[x]^\Box$ -- округление до ближайшего четного (то есть число $0,5$ округляется до $0$, а число $1,5$ до $2$)
-\item $[x]^\star$ -- когда неважно, как именно округлять.
+\item $[x]^\Box$ -- округление до ближайшего четного (то есть число $0.5$ округляется до $0$, а число $1.5$ до $2$)
+\item $[x]^\star$ -- используется, когда неважно, как именно округлять.
 \item $\tilde x = \left[ x \right]_p^s$ -- округленное число до $p$ знаков после запятой, а $s$ -- один из вышеизложенных способов округления.
 \end{itemize}
 
-Ошибка: $x=f \times b^e$ должно быть округлено до ближайшего $|\tilde x - x| \leqslant 0,5 \times b^e$, другими словами, до половины \texttt{ulp} (\textit{unit in the last place}).
+$x=f \times b^e$ должно быть округлено до ближайшего $|\tilde x - x| \leqslant 0,5 \times b^e$, другими словами, до половины \texttt{ulp} (\textit{unit in the last place}).
 
-$v=f_v \times b^{e_v}$ -- положительное число.
+Для положительного числа $v=f_v \times b^{e_v}$ определим ближайшие числа к нему.
 $v^{-}$ -- предыдущее число для $v$, хранящееся в памяти.
 Аналогично $v^{+}$ -- следующее число за $v$.
 Если $v$ наименьшее, то $v^{-} = 0$.
 Если $v$ наибольшее, то $v^{+} = v + (v - v^{-})$.
 
+Введем понятие \textit{границы} между двумя соседними числами.
+По определению это просто средние арифметические $$m^- = \cfrac{v^- + v}{2} \quad \mbox{и} \quad m^+ = \cfrac{v + v^+}{2}.$$
+Очевидно, что границы нельзя представить в виде чисел с плавающей точкой, так как они лежат между двумя соседними числами в памяти. 
+Поэтому любое число $w$, такое что $m^- < w < m^+$ будет округлено до $v$. 
+Если же $w$ совпало с одной из границ будем округлять его до ближайшего четного.
 
-Определим \texttt{diy\_fp} для $x$ как беззнаковое целое число $f_x$, состоящее из $q$ битов, и знакового целого числа $e_x$ неограниченного диапазона. 
+Будем говорить, что представление $R$ у числа с плавающей точкой $v$ \textit{удовлетворяет требованию}, если при чтении $R$ будет представлено как $v$.
+
+Определим тип \texttt{diy\_fp} для $x$ как беззнаковое целое число $f_x$, состоящее из $q$ битов, и знакового целого числа $e_x$ неограниченного диапазона. 
 Значение $x$ можно вычислить как $x= f_x \times 2^{e_x}$.
 Очевидно произведение двух таких типов отличатся от обычного.
 Вычислять и обозначать его будем следующим образом:
@@ -171,7 +190,7 @@ $$x \otimes y := \left[ \frac{f_x \times f_y}{2^q}\right]^\uparrow \times 2^{e_x
 \subsubsection{\textsf{Grisu}}
 \paragraph{Идея алгоритма.}
 Предполагается, не умаляя общности, что у числа с плавающей точкой $v$ отрицательный показатель. 
-Тогда это число можно выразить как $v=\cfrac{f_v}{2^{-e_v}}$, где $f_v$ -- мантисса, а $e_v$ -- экспонента. 
+Тогда это число можно выразить как $$v=\cfrac{f_v}{2^{-e_v}}$$. 
 Десятичные цифры $v$ могут быть вычислены путем нахождения десятичного показателя $t$, для которого $1 \leqslant \cfrac{f_v \times 10^t}{2^{-e_v}} < 10$.
 
 Первая цифра является целой частью этой дроби. 
@@ -182,7 +201,7 @@ $$x \otimes y := \left[ \frac{f_x \times f_y}{2^q}\right]^\uparrow \times 2^{e_x
 
 Кэш для всевозможных значений $t$ и $e_t$ может быть дорогостоящим. 
 Из-за этого требования к кеш-памяти в \textsf{Grisu} упрощены. 
-Кэш хранит только нормированные приближения с плавающей точкой всех соответствующих степеней десяти: $\tilde{c_k} := \left[ 10^k \right]_q^{\star}$, где $q$ -- точность кэшированных чисел.
+Кэш хранит только нормированные приближения с плавающей точкой всех соответствующих степеней десяти: $$\tilde{c}_k := \left[ 10^k \right]_q^{\star},$$ где $q$ -- точность кэшированных чисел.
 Кэшированные числа сокращают большую часть экспоненты $v$, так что остается только небольшой показатель. 
 
 Процесс генерации цифр использует степени десяти с экспонентой $e_{\tilde{c_t}}$, близкой к $e_v$. 
@@ -193,7 +212,7 @@ $$x \otimes y := \left[ \frac{f_x \times f_y}{2^q}\right]^\uparrow \times 2^{e_x
 \paragraph{Реализация.}
 Алгоритм \textsf{Grisu}: \begin{itemize}
 \item \textit{Вход:} положительное число с плавающей точкой $v$ точности $p$.
-\item \textit{Условие:} точность \texttt{diy\_fp} удовлетворяет $q \geqslant p + 2$, а кеш степеней десяти состоит из предварительно вычисленных нормированных округленных  \texttt{diy\_fp} значений $\tilde{c_k} := \left[ 10^k \right]_q^{\star}$
+\item \textit{Условие:} точность \texttt{diy\_fp} удовлетворяет $q \geqslant p + 2$, а кеш степеней десяти состоит из предварительно вычисленных нормированных округленных  \texttt{diy\_fp} со значениями $\tilde{c}_k := \left[ 10^k \right]_q^{\star}$
 \item \textit{Вывод:} строковое представление в основании 10 для $V$ такое, что $[V]^{\Box}_p = v$. 
 То есть $V$ должен быть округлен до $v$ при чтении вновь.
 \end{itemize}
@@ -201,24 +220,23 @@ $$x \otimes y := \left[ \frac{f_x \times f_y}{2^q}\right]^\uparrow \times 2^{e_x
 Шаги алгоритма:
 \begin{enumerate}
 \item \textit{Преобразование:} определим нормированный \texttt{diy\_fp} $w$ такой, что $w = v$.
-\item \textit{Кэширование степеней:} находим с заданной точностью $\tilde{c}_{-k} = f_c \times 2^{e_c}$ такое, что $\alpha \leqslant e_c + e_w + q \leqslant \gamma$.
-\item \textit{Произведение:} пусть $\tilde{D} = f_D \times 2^{e_D} := w \otimes \tilde{c}_{-k}$.
-\item \textit{Выход:} определим искомое $V := \tilde{D} \times 10^k$. 
+\item \textit{Кэширование степеней:} находим с заданной точностью $$\tilde{c}_{-k} = f_c \times 2^{e_c}$$ такое, что $\alpha \leqslant e_c + e_w + q \leqslant \gamma$. ($\alpha$ и $\gamma$ заданные заранее параметры, причем $\gamma \geqslant \alpha + 3$.) 
+\item \textit{Произведение:} пусть $$\tilde{D} = f_D \times 2^{e_D} := w \otimes \tilde{c}_{-k}.$$
+\item \textit{Выход:} определим искомое $$V := \tilde{D} \times 10^k.$$ 
 Вычислим десятичное представление $\tilde{D}$, за которым следует строка \texttt{e} и десятичное представление $k$.
 \end{enumerate}
 Поскольку значение \texttt{diy\_fp} больше, чем значение входного числа, преобразование шага 1 дает точный результат. 
 По определению \texttt{diy\_fp}-ы имеют бесконечный диапазон экспоненциальности и показатель степени $w$, следовательно, достаточно велик для нормирования. 
 Заметим, что показатель $e_w$ удовлетворяет $e_w \leqslant e_v - (q - p)$. 
 
-Легко показать, что $\forall i, 0 < \tilde{e}_{c_i} - \tilde{e}_{c_{i-1}} \leqslant 4$, и поскольку кеш неограничен, требуемый $\tilde{c}_{-k}$ должен находиться в кеше. 
+Легко показать, что $\forall \, i \quad 0 < \tilde{e}_{c_i} - \tilde{e}_{c_{i-1}} \leqslant 4$, и поскольку кеш неограничен, требуемый $\tilde{c}_{-k}$ должен находиться в кеше. 
 Это является причиной первоначального требования $\gamma \geqslant \alpha + 3$.
 
 Разумеется, бесконечный кеш не нужен. 
-$k$ зависит только от типа номера с плавающей точкой ввода (его диапазон экспоненты), точности \texttt{diy\_fp} и пары $\alpha$ и $\gamma$.
 
 Результатом \textsf{Grisu} является строка, содержащая десятичное представление $\tilde{D}$, за которым следуют символ \texttt{e} и $k$ знаков. 
 Таким образом, он представляет собой число $V: = \tilde{D} \times 10^k$. 
-Утверждается, что $V$ дает $v$ при округлении до числа с плавающей точкой с точностью $p$.
+Утверждается, что представление $V$ у числа $v$ \textit{удовлетворяет требованию} с точностью $p$.
 
 \subsubsection{\textsf{Grisu2}}
 Но у \textsf{Grisu} есть недостаток: так число 1 будет напечатано в виде \\ \texttt{10000000000000000000e-19}.
@@ -232,10 +250,10 @@ $k$ зависит только от типа номера с плавающей
 Как описано выше, \textsf{Grisu2} использует дополнительные биты для создания более короткой выходной строчки. 
 Также \textsf{Grisu2} не будет работать с точными числами, а вместо этого будет вычислять аппроксимации $m^{-}$ и $m^+$. 
 Чтобы избежать ошибочных результатов, которые не удовлетворяют требованиям, добавляется ''безопасное пространство'' (\textit{safety margin}) вокруг приблизительных границ. 
-Как следствие, \textsf{Grisu2} иногда может вернуть не самое оптимальное представление, которое может лежать вне нужных изначально границ. 
-Также это safety-margin требует от нас изменить предварительное условие. 
-Действительно, используя только 2 дополнительных бита, вычисление настолько неточно, что \textsf{Grisu2} может закончиться ничем.
-Чтобы таких проблем избежать добавляется третий дополнительный бит: $q \geqslant p + 3$.
+Как следствие, \textsf{Grisu2} иногда может вернуть не самое оптимальное представление: оно может лежать вне нужных границ. 
+Также это safety-margin требует изменения начального условия. 
+Действительно, используя только 2 дополнительных бита, вычисление настолько неточно, что \textsf{Grisu2} может вернуть пустой интервал (?).
+Во избежание таких проблем добавляется третий дополнительный бит: $q \geqslant p + 3$.
 
 \paragraph{Реализация.}
 Алгоритм \textsf{Grisu2}: \begin{itemize}
@@ -247,10 +265,16 @@ $k$ зависит только от типа номера с плавающей
 Шаги алгоритма:
 \begin{enumerate}
 \item \textit{Границы:} вычисляем границы для $v$: $m^{-}$ и $m^{+}$. 
-\item \textit{Преобразование:} определим \texttt{diy\_fp} $w^+$ так ,что $w^+ = m^+$. 
-Определим также \texttt{diy\_fp} $w^-$ так, что $w^{-} = m^-$ и $e_w^- = e_w^+$.
-\item \textit{Кэширование степеней:} находим с заданной точностью $\tilde{c}_{-k} = f_c \times 2^{e_c}$ такое, что $\alpha \leqslant e_c + e_w + q \leqslant \gamma$.
-\item \textit{Произведение:} вычисляем $\tilde{M}^- := w^- \otimes \tilde{c}_{-k}$, $\tilde{M}^+ := w^+ \otimes \tilde{c}_{-k}$, и пусть $M_\uparrow^- := \tilde{M}^- + 1 \texttt{ulp}$, $M_\downarrow^+ := \tilde{M}^+ - 1 \texttt{ulp}$, $\delta := M_\downarrow^+ - M_\uparrow^-$.
+\item \textit{Преобразование:} определим \texttt{diy\_fp} для $w^+$ так ,что $w^+ = m^+$. 
+Определим также \texttt{diy\_fp} для $w^-$ так, что $w^{-} = m^-$ и $e_w^- = e_w^+$.
+\item \textit{Кэширование степеней:} находим с заданной точностью $$\tilde{c}_{-k} = f_c \times 2^{e_c}$$ такое, что $\alpha \leqslant e_c + e_w + q \leqslant \gamma$.
+\item \textit{Произведение:} вычисляем \begin{align*}
+&\tilde{M}^- := w^- \otimes \tilde{c}_{-k}; \\
+&\tilde{M}^+ := w^+ \otimes \tilde{c}_{-k};
+\end{align*}и пусть также \begin{align*} & M_\uparrow^- := \tilde{M}^- + 1 \texttt{ulp};\\
+& M_\downarrow^+ := \tilde{M}^+ - 1 \texttt{ulp};\\
+& \delta := M_\downarrow^+ - M_\uparrow^-.
+\end{align*}
 \item \textit{Количество разрядов:} находим наибольшее $\kappa$ такое, что $M_\downarrow^+ \mod 10^\kappa \leqslant \delta$ и определим $P:= \left\lfloor \cfrac{M_\downarrow^+}{10^\kappa} \right\rfloor$.
 \item \textit{Выход:} определим $V:= P \times 10^{k + \kappa}$. 
 Десятичные знаки $d_i$ и $n$ получены путем вычисления десятичного представления $P$.
