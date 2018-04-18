@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{819.2bp}%
+    \setlength{\unitlength}{624bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,12 +50,12 @@
   \makeatother%
   \begin{picture}(1,1)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{graph.pdf}}%
-    \put(0.04753402,0.30769686){\color[rgb]{0,0,0}\rotatebox{90.38597135}{\makebox(0,0)[lb]{\smash{\textit{Время работы (с)}}}}}%
-    \put(0.3127636,0.02127204){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{Размер массива}}}}%
+    \put(0.06240359,0.2654903){\color[rgb]{0,0,0}\rotatebox{90.38597135}{\makebox(0,0)[lb]{\smash{\textit{Время работы (с)}}}}}%
+    \put(0.32598709,0.02792637){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{Размер массива}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{graph.pdf}}%
-    \put(0.27744788,0.92693336){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{1}}}}%
-    \put(0.27744788,0.90035016){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{2}}}}%
-    \put(0.27744788,0.87376685){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{3}}}}%
-    \put(0.27744788,0.84718365){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{4}}}}%
+    \put(0.32394624,0.90004731){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{1}}}}%
+    \put(0.32394624,0.86514835){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{2}}}}%
+    \put(0.32394624,0.83024923){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{3}}}}%
+    \put(0.32394624,0.79535027){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{4}}}}%
   \end{picture}%
 \endgroup%
