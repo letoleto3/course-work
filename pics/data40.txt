@@ -1,0 +1,92 @@
+time40 = 0.568
+time36 = 0.570
+time32 = 0.437
+time28 = 0.494
+time24 = 0.336
+time20 = 0.409
+time16 = 0.314
+time12 = 0.315
+time8 = 0.346
+time4 = 0.561
+time1 = 2.245
+time = 3.459
+
+time40 = 0.586
+time36 = 0.555
+time32 = 0.460
+time28 = 0.463
+time24 = 0.457
+time20 = 0.305
+time16 = 0.300
+time12 = 0.307
+time8 = 0.348
+time4 = 0.577
+time1 = 2.074
+time = 3.320
+
+time40 = 0.565
+time36 = 0.539
+time32 = 0.502
+time28 = 0.326
+time24 = 0.317
+time20 = 0.309
+time16 = 0.313
+time12 = 0.328
+time8 = 0.348
+time4 = 0.576
+time1 = 1.987
+time = 4.064
+
+time40 = 4.256
+time36 = 3.304
+time32 = 2.640
+time28 = 2.550
+time24 = 1.589
+time20 = 1.505
+time16 = 1.533
+time12 = 1.604
+time8 = 1.570
+time4 = 2.850
+time1 = 10.235
+time = 17.000
+
+time40 = 3.065
+time36 = 2.844
+time32 = 2.375
+time28 = 1.535
+time24 = 1.710
+time20 = 1.645
+time16 = 1.503
+time12 = 1.539
+time8 = 1.565
+time4 = 2.914
+time1 = 10.584
+time = 17.227
+
+time40 = 6.172
+time36 = 5.889
+time32 = 4.878
+time28 = 2.879
+time24 = 4.364
+time20 = 3.492
+time16 = 1.791
+time12 = 2.607
+time8 = 3.162
+time4 = 5.556
+time1 = 22.519
+time = 32.390
+
+time40 = 46.937
+time36 = 34.897
+time32 = 28.272
+time28 = 22.562
+time24 = 17.038
+time20 = 15.034
+time16 = 10.097
+time12 = 11.726
+time8 = 16.400
+time4 = 28.887
+time1 = 101.709
+time = 162.607
+
+
