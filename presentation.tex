@@ -11,7 +11,7 @@
 
 \usepackage{hhline}
 \usepackage{longtable}
-\usetheme{Darmstadt}
+\usetheme{Singapore}
 
 \renewcommand{\figurename}{Рисунок}
 \begin{document}
@@ -51,8 +51,8 @@
 }
 
 \section{Описание алгоритма}
-\subsection{Распределение задач}
 \frame{
+\textbf{Распределение задач}\\
 Наглядно работа потоков изображена на рисунке:
 \begin{figure}[h!]
 \begin{tiny}
@@ -61,7 +61,6 @@
 \end{tiny}\end{figure}
 }
 
-\subsection{Преобразование чисел в строковый тип}
 \frame{
 \textbf{Хранение чисел}\\
 Число $v$ с плавающей точкой по основанию $b$ представляется в памяти как $$v = f_v \times b^{e_v},$$ где основание $b$ в стандарте \textsf{IEEE 754} равно $2$. $f_v$ -- целое значение или \textit{мантисса}, а $e_v$ -- \textit{показатель}.
