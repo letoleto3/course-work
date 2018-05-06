@@ -14,7 +14,7 @@ set yrange [0:25]
 set tics font "Times-Italic,18"
 
 set xlabel 'Число потоков' font 'Times-Italic,18'
-set title 'Запуск на машине с 40 ядрами' font 'Times-Italic,18'
+set title 'Запуск на машине с 20 ядрами' font 'Times-Italic,18'
 set ylabel 'Время работы (с)' font 'Times-Italic,18'
 set style data linespoints
 plot "time40.txt" using 1:2 with linespoints ls 6 notitle
@@ -29,7 +29,7 @@ set yrange [0:35]
 set tics font "Times-Italic,18"
 
 set xlabel 'Число потоков' font 'Times-Italic,18'
-set title 'Запуск на машине с 12 ядрами' font 'Times-Italic,18'
+set title 'Запуск на машине с 6 ядрами' font 'Times-Italic,18'
 set ylabel 'Время работы (с)' font 'Times-Italic,18'
 set style data linespoints
 plot "time.txt" using 1:2 with linespoints ls 5 notitle
