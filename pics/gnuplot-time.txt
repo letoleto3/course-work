@@ -9,7 +9,7 @@ set style line 9 lc rgb "#999999" lt 9 lw 2 pt 9 ps 1. pi -1 dt 9  ##
 set pointintervalbox 2  ## interval to a point
 
 set grid
-set xrange [0:40]
+set xrange [0:22]
 set yrange [0:25]
 set tics font "Times-Italic,18"
 
