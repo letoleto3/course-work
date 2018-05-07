@@ -60,14 +60,6 @@
   \input{pics/drawing.pdf_tex}
 \end{tiny}\end{figure}
 }
-
-\frame{
-\textbf{Хранение чисел}\\
-Число $v$ с плавающей точкой по основанию $b$ представляется в памяти как $$v = f_v \times b^{e_v},$$ где основание $b$ в стандарте \textsf{IEEE 754} равно $2$. $f_v$ -- целое значение или \textit{мантисса}, а $e_v$ -- \textit{показатель}.
-
-Любая мантисса $f$ может быть представлена как $$f = \sum\limits_{i=0}^{p-1} d_i \times b^i,$$ где $0 \leqslant d_i < b$. 
-Числа $d_i$ -- \textit{знаки числа}.
-}
 \frame{
 \textbf{Алгоритм Grisu}\\
 \begin{itemize}
